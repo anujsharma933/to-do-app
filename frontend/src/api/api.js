@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_BASE = import.meta.env.MODE === "development"
   ? "http://localhost:5000/api"
-  : "https://to-do-app-e81b.onrender.com/api";
+  : "https://to-do-app-.vercel.app/api";
 
 const axiosInstance = axios.create({
   baseURL: API_BASE,
