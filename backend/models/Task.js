@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const taskSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -7,4 +7,4 @@ const taskSchema = new mongoose.Schema({
   status: { type: String, enum: ['pending', 'complete'], default: 'pending' }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Task', taskSchema);
+export default mongoose.model('Task', taskSchema);
