@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://to-do-b0rs6jg88-anujsharma933s-projects.vercel.app",
+      "https://vercel.com/anujsharma933s-projects/to-do-app/7YVs4qWU66koSntsJxieBBmRuFBj/api",
       "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
