@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_BASE =
-  import.meta.env.VITE_API_BASE?.trim() || 'http://localhost:5000/api';
+ "https://to-do-app-e81b.onrender.com" || "http://localhost:5000";
 
 const axiosInstance = axios.create({
   baseURL: API_BASE,
