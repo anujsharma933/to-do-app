@@ -13,6 +13,7 @@
 - [x] Update frontend/src/api/api.js to use the provided Vercel backend URL.
 - [x] Add vercel.json and build script to backend for Vercel deployment.
 - [x] Backend is already deployed on Vercel at https://to-do-app-.vercel.app.
+- [x] Fixed API endpoints in frontend to remove extra "/api" prefix.
 - [ ] Ensure environment variables are set on the Vercel backend deployment: MONGO_URI, JWT_SECRET.
 - [ ] Update CORS in backend/index.js if needed (currently allows Vercel origin, which is good).
 - [ ] Test the deployment after changes.

@@ -10,7 +10,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/api/auth/signup", form);
+      const res = await api.post("/auth/signup", form);
       localStorage.setItem("token", res.data.token);
       setAuthToken(res.data.token);
       navigate("/");
