@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://vercel.com/anujsharma933s-projects/to-do-app/7YVs4qWU66koSntsJxieBBmRuFBj/api",
+      "https://to-do-app-sepia-ten.vercel.app",
       "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
