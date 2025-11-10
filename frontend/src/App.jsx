@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      {/* Animated particles background */}
+      
       <ParticlesBackground darkMode={darkMode} />
 
       {/* Toggle button */}

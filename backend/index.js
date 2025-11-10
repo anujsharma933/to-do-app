@@ -8,9 +8,9 @@ import taskRoutes from "./routes/tasks.js";
 dotenv.config();
 
 const app = express();
+
+// Middlewares
 app.use(express.json());
-
-
 app.use(
   cors({
     origin: [
@@ -22,20 +22,31 @@ app.use(
   })
 );
 
-
 const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log(" MongoDB Connected"))
-  .catch((err) => console.log(" DB Connection Error:", err));
+const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGO_URI);
+    console.log("✅ MongoDB Connected");
+  } catch (err) {
+    console.error("❌ MongoDB Connection Error:", err.message);
+    process.exit(1);
+  }
+};
+
+connectDB();
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
-  res.send(" Todo App Backend Running!");
+  res.send("✅ Todo App Backend Running Publicly!");
 });
 
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`🚀 Server is live on PORT ${PORT}`)
+);
