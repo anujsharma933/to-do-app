@@ -10,7 +10,7 @@ export default function Tasks() {
 
   const fetchTasks = async () => {
     try {
-      const res = await api.get("/api/tasks");
+      const res = await api.get("/tasks");
       setTasks(res.data);
     } catch (err) {
       console.error(err);
@@ -23,10 +23,10 @@ export default function Tasks() {
     e.preventDefault();
     try {
       if (editing) {
-        await api.put(`/api/tasks/${editing._id}`, form);
+        await api.put(`/tasks/${editing._id}`, form);
         setEditing(null);
       } else {
-        await api.post("/api/tasks", form);
+        await api.post("/tasks", form);
       }
       setForm({ title: "", description: "" });
       fetchTasks();
@@ -37,13 +37,13 @@ export default function Tasks() {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this task?")) return;
-    await api.delete(`/api/tasks/${id}`);
+    await api.delete(`/tasks/${id}`);
     fetchTasks();
   };
 
   const handleToggle = async (task) => {
     const newStatus = task.status === "pending" ? "complete" : "pending";
-    await api.put(`/api/tasks/${task._id}`, { status: newStatus });
+    await api.put(`/tasks/${task._id}`, { status: newStatus });
     fetchTasks();
   };
 
