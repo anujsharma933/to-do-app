@@ -20,7 +20,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cors({
-  origin:"*"
+  origin:'https://to-do-app-sepia-ten.vercel.app'
 }));
 
 const PORT = process.env.PORT || 5000;
