@@ -19,9 +19,12 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors({
-  origin:'https://to-do-app-sepia-ten.vercel.app'
-}));
+const corsOptions = {
+  origin: 'https://to-do-app-sepia-ten.vercel.app',  // Allow only the frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow these HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow custom headers like Content-Type and Authorization
+  credentials: true,  // Allow credentials like cookies if necessary
+};
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
