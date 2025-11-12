@@ -19,16 +19,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(
-  cors({
-    origin: [
-      "https://to-do-app-sepia-ten.vercel.app",
-      "http://localhost:5173"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
