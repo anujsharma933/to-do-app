@@ -9,22 +9,9 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Manual CORS headers (important for Vercel)
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://to-do-app-sepia-ten.vercel.app"); 
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//   next();
-// });
-
 // Middlewares
 app.use(express.json());
-const corsOptions = {
-  origin: '*',  // Allow only the frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow these HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow custom headers like Content-Type and Authorization
-  credentials: true,  // Allow credentials like cookies if necessary
-};
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
