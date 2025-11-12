@@ -20,7 +20,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://to-do-app-sepia-ten.vercel.app',  // Allow only the frontend domain
+  origin: '*',  // Allow only the frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow these HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allow custom headers like Content-Type and Authorization
   credentials: true,  // Allow credentials like cookies if necessary
